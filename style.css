@@ -1,0 +1,153 @@
+/* ============================================================
+   GEN Modern Calculator — style.css
+   This file controls how the calculator looks.
+   ============================================================ */
+
+/* --- Reset: remove default spacing so our layout is consistent --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- Page background and centering --- */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 20px;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(135deg, #0f0c29, #24243e, #302b63);
+}
+
+/* --- App title --- */
+.title {
+  color: #ffffff;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.title span {
+  color: #ff9500;
+}
+
+/* --- The calculator body (the dark card) --- */
+.calculator {
+  width: 100%;
+  max-width: 360px;
+  background: #1c1c28;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* --- The display screen --- */
+.display {
+  background: #12121a;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  min-height: 120px;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+/* Small top line: shows the first number and the operator */
+.display-previous {
+  color: #8e8e9a;
+  font-size: 1.2rem;
+  min-height: 1.4em;
+  word-break: break-all;
+}
+
+/* Big bottom line: shows the number being typed */
+.display-current {
+  color: #ffffff;
+  font-size: 2.6rem;
+  font-weight: 600;
+  line-height: 1.2;
+  word-break: break-all;
+}
+
+/* --- The button grid --- */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+/* --- Shared button style --- */
+.btn {
+  aspect-ratio: 1;            /* makes every button a perfect square/circle */
+  border: none;
+  border-radius: 50%;         /* round buttons */
+  font-size: 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.1s ease, filter 0.15s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Pressing a button makes it shrink slightly */
+.btn:active {
+  transform: scale(0.92);
+}
+
+/* --- Number buttons (dark) --- */
+.number {
+  background: #2e2e3e;
+  color: #ffffff;
+}
+
+.number:hover {
+  filter: brightness(1.25);
+}
+
+/* --- Function buttons: AC, DEL, %, +/-, . (light gray) --- */
+.function {
+  background: #a5a5b0;
+  color: #1c1c28;
+  font-size: 1.25rem;
+}
+
+.function:hover {
+  filter: brightness(1.15);
+}
+
+/* --- Operator buttons (orange) --- */
+.operator {
+  background: #ff9500;
+  color: #ffffff;
+}
+
+.operator:hover {
+  filter: brightness(1.15);
+}
+
+/* --- Smaller screens (mobile) --- */
+@media (max-width: 400px) {
+  .calculator {
+    padding: 16px;
+  }
+
+  .buttons {
+    gap: 8px;
+  }
+
+  .display-current {
+    font-size: 2.2rem;
+  }
+
+  .btn {
+    font-size: 1.3rem;
+  }
+}
